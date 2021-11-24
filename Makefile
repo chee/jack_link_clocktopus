@@ -28,7 +28,7 @@ CCFLAGS += -g -O2 -std=c++11
 CCFLAGS += -Wno-multichar
 
 #https://stackoverflow.com/questions/714100/os-detecting-makefile
-ifeq ($(OS),Windows_NT) 
+ifeq ($(OS),Windows_NT)
 DETECTED_OS := Windows
 else
 DETECTED_OS := $(shell sh -c 'uname 2>/dev/null || echo Unknown')
@@ -49,7 +49,7 @@ CCFLAGS += -Ilink/include
 CCFLAGS += -DASIO_STANDALONE=1
 CCFLAGS += -Ilink/modules/asio-standalone/asio/include
 
-LDFLAGS += -ljack -lpthread
+LDFLAGS += -ljack -lpthread -lpigpiod_if2 -lrt
 
 HEADERS  = jack_link.hpp
 SOURCES  = jack_link.cpp
