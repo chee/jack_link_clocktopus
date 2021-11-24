@@ -437,10 +437,11 @@ void setup_buttons(int pi) {
   set_mode(pi, BUTTON_A, PI_INPUT);
   set_mode(pi, BUTTON_B, PI_INPUT);
   set_mode(pi, BUTTON_X, PI_INPUT);
+  set_mode(pi, BUTTON_Y, PI_INPUT);
   set_pull_up_down(pi, BUTTON_Y, PI_PUD_UP);
-  set_pull_up_down(pi, BUTTON_A, PI_PUD_UP);
-  set_pull_up_down(pi, BUTTON_A, PI_PUD_UP);
-  set_pull_up_down(pi, BUTTON_A, PI_PUD_UP);
+  set_pull_up_down(pi, BUTTON_B, PI_PUD_UP);
+  set_pull_up_down(pi, BUTTON_X, PI_PUD_UP);
+  set_pull_up_down(pi, BUTTON_Y, PI_PUD_UP);
 }
 
 int main(int /*argc*/, char ** /*argv*/) {
@@ -453,7 +454,6 @@ int main(int /*argc*/, char ** /*argv*/) {
   std::string line, arg;
 
   while (app.active()) {
-    // TODO bitmask
     bool a_pressed = !gpio_read(pi, BUTTON_A);
     bool b_pressed = !gpio_read(pi, BUTTON_B);
     bool x_pressed = !gpio_read(pi, BUTTON_X);
